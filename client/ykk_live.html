@@ -1,0 +1,48 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="image.jpg" rel="apple-touch-icon-precomposed">
+  <title>YKK live</title>
+</head>
+
+<body>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container">
+        {{> menu}}
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    {{> msg}}
+  </div>
+</body>
+
+<template name="menu">
+  <a class="brand">
+    {{greeting}}
+  </a>
+  {{> updateUserNick}}
+  {{loginButtons align=right}}
+  <button id="show_button">Show</button>
+</template>
+<template name="updateUserNick">
+  <input id="nick" type="text" name="nick" value="{{nick}}" placeholder="doktor..." />
+</template>
+<template name="msg">
+<div class="text-center">
+  <input id="newMsg" type="text" value="{{new_msg}}" name="text" class="span8" placeholder="Skriv text"/>
+</div>
+{{#each messages}}
+<div class="row-fluid msg-row">
+  <div class="span3">
+    {{user.nick}}
+    <br/>
+    {{createdAt}}
+  </div>
+  <div class="span9">
+    {{{text}}}
+  </div>
+
+</div>
+{{/each}}
+</template>
