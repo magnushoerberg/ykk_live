@@ -1,10 +1,17 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="image.jpg" rel="apple-touch-icon-precomposed">
+  <script type="text/javascript" src="//webintents.org/webintents.min.js"></script>
+  <script type="text/javascript" src="//webintents.org/webintents-prefix.js"></script>
   <title>YKK live</title>
 </head>
-
 <body>
+  <div id="d"></div>
+  <intent action="http://webintents.org/share"
+  type="image/*"
+  href="share.html"
+  title="Alla ska med!"
+  />
   <div class="navbar">
     <div class="navbar-inner">
       <div class="container">
