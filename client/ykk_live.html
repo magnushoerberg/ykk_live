@@ -6,7 +6,6 @@
   <title>YKK live</title>
 </head>
 <body>
-  <div id="d"></div>
   <intent action="http://webintents.org/share"
   type="image/*"
   href="share.html"
@@ -25,31 +24,33 @@
 </body>
 
 <template name="menu">
-  <a class="brand">
-    {{greeting}}
-  </a>
-  {{> updateUserNick}}
-  {{loginButtons align=right}}
-  <button id="show_button">Show</button>
+<a class="brand">
+  {{greeting}}
+</a>
+{{> updateUserNick}}
+{{loginButtons align=right}}
+<button id="show_button">Show</button>
 </template>
 <template name="updateUserNick">
-  <input id="nick" type="text" name="nick" value="{{nick}}" placeholder="doktor..." />
+<input id="nick" type="text" name="nick" value="{{nick}}" placeholder="doktor..." />
 </template>
 <template name="msg">
-<div class="text-center">
-  <input id="newMsg" type="text" value="{{new_msg}}" name="text" class="span8" placeholder="Skriv text"/>
-</div>
-{{#each messages}}
-<div class="row-fluid msg-row">
-  <div class="span3">
-    {{user.nick}}
-    <br/>
-    {{createdAt}}
-  </div>
-  <div class="span9">
-    {{{text}}}
-  </div>
+<div class="text-center input-prepend input-append">
+  <button class="btn"> <i class="icon-video" /></button>
+    <input id="newMsg" type="text" value="{{new_msg}}" name="text" class="span8" placeholder="Skriv text"/>
+    <button class="btn"> <i class="icon-camera" /> </button>
+    </div>
+    {{#each messages}}
+    <div class="row-fluid msg-row">
+      <div class="span3">
+        {{user.nick}}
+        <br/>
+        {{createdAt}}
+      </div>
+      <div class="span9">
+        {{{text}}}
+      </div>
 
-</div>
-{{/each}}
-</template>
+    </div>
+    {{/each}}
+    </template>
