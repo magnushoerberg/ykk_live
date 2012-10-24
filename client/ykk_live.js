@@ -26,10 +26,15 @@ var okCancelEvents = function (selector, callbacks) {
     };
   return events;
 };
-
 Meteor.subscribe("messages");
-Meteor.subscribe("userData");
 var messages = Messages.find({}, { sort: {createdAt: -1} });
+Meteor.subscribe("userData");
+Meteor.subscribe("activeUsers")
+var activeUsers = Meteor.users.find({active: true})
+if (Meteor.userId()) {
+  Meteor.call('setActiveUser', {active: true});
+}
+
 messages.observe({
   added: function(msg) {
     if ((msg.createdAt < PageLoadTime) || document.hasFocus()) {
@@ -62,6 +67,9 @@ messages.observe({
 Template.msg.messages = function() {
   return messages;
 };
+Template.activeUsers.users =  function() {
+  return activeUsers;
+}
 Template.updateUserNick.nick = function () {
   if (Meteor.user())
     return Meteor.user().nick;

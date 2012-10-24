@@ -23,6 +23,18 @@
   </div>
 </body>
 
+<template name="activeUsers">
+<div class="affix active-users border background">
+  <h4>Aktiva:</h4>
+  <ul class="unstyled">
+    {{#each users}}
+    <li>
+      {{nick}}
+    </li>
+    {{/each}}
+  </ul>
+</div>
+</template>
 <template name="menu">
 <a class="brand">
   {{greeting}}
