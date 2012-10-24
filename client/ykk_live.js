@@ -1,7 +1,6 @@
 Messages = new Meteor.Collection('messages');
 PageLoadTime = Date.now();
 ////////// Helpers for in-place editing //////////
-
 // Returns an event map that handles the "escape" and "return" key-
 // events on a text input (given by selector) and interprets them
 // as "ok" or "cancel".
@@ -34,15 +33,6 @@ if (window.webkitNotifications) {
 else {
   console.log('not supported');
 }
-Template.menu.events({
-  "click #show_button": function() {
-    if (window.Notification && window.Notification.permissionLevel() != 'granted') {
-      window.Notification.requestPermission(function(res) {
-        console.log(res);
-      });
-    }
-  }
-});
 
 Meteor.subscribe("messages");
 Meteor.subscribe("userData");
