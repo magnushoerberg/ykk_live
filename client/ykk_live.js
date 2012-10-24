@@ -26,13 +26,6 @@ var okCancelEvents = function (selector, callbacks) {
     };
   return events;
 };
-// check for notifications support
-if (window.webkitNotifications) {
-  console.log("Notifications are supported!");
-}
-else {
-  console.log('not supported');
-}
 
 Meteor.subscribe("messages");
 Meteor.subscribe("userData");
@@ -57,7 +50,6 @@ messages.observe({
       notification.onerror = function(evt) {
         console.log(evt);
       };
-      console.log(notification);
       //"image.jpg", msg.user && msg.user.nick, msg.text);
       notification.show(); // note the show()
     } else if(navigator.mozNotification) {
