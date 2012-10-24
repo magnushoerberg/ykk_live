@@ -32,7 +32,7 @@ Meteor.subscribe("userData");
 var messages = Messages.find({}, { sort: {createdAt: -1} });
 messages.observe({
   added: function(msg) {
-    if (msg.createdAt < PageLoadTime) {
+    if ((msg.createdAt < PageLoadTime) || document.hasFocus()) {
       return;
     }
     if (window.Notification) {
