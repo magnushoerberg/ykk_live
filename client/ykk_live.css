@@ -6,19 +6,45 @@
     margin-right: auto;
   }
 }
+.active-users {
+    position: relative;
+}
+.active-users h4 {
+    padding-left: 7px;
+}
+.active-users ul {
+    padding-top: 7px;
+    padding-left: 7px;
+}
 body {
-  background: url(http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/navy_blue.png);
+  background: url(http://subtlepatterns.com/patterns/px_by_Gre3g.png);
+  color: #A6CBE1;
+}
+a {
+  color: #A6CBE1;
+}
+a:link {
+  color: #A6CBE1;
 }
 .text-center {
   text-align: center;
 }
-.msg-row:hover {
-  background: white;
-}
 .msg-row {
-  background: rgba(255, 255, 255, 0.8);
   margin-bottom: 5px;
+  border-bottom: 1px solid;
+}
+.border {
   border-radius: 5px;
-  border: 2px solid #aaa;
-  padding: 5px;
+  border: 1px solid magenta;
+}
+.background {
+  background: rgba(0, 0, 0, 0.5);
+}
+.navbar {
+  border-bottom: 1px solid magenta;
+}
+.msg-row .span3, .msg-row .span9 {
+  padding-left: 7px;
+  padding-bottom: 7px;
+  padding-top: 7px;
 }

@@ -11,16 +11,31 @@
   href="share.html"
   title="Alla ska med!"
   />
-  <div class="navbar">
+  <div class="navbar navbar-inverse">
     <div class="navbar-inner">
       <div class="container">
         {{> menu}}
+        {{> updateUserNick}}
       </div>
     </div>
   </div>
   <div class="container-fluid">
-    {{> msg}}
+    {{> newMsg}}
+    <div class="row-fluid">
+      <div class="span3">
+        {{> activeUsers}}
+      </div>
+      <div class="span9">
+        {{> msg}}
+      </div>
   </div>
+  <script type="text/javascript">
+
+    function confirmExit() {
+      return "You have attempted to leave this page.  If you have made any changes to the fields without clicking the Save button, your changes will be lost.  Are you sure you want to exit this page?";
+    };
+
+  </script>
 </body>
 
 <template name="activeUsers">
@@ -39,29 +54,32 @@
 <a class="brand">
   {{greeting}}
 </a>
-{{> updateUserNick}}
-{{loginButtons align=right}}
+{{loginButtons align=left}}
+</template>
+<template name="newMsg">
+<div class="text-center input-append border">
+  <input id="newMsg" type="text" value="{{new_msg}}" name="text" class="span9" placeholder="Skriv text"/>
+  <button class="btn">
+    <i class="icon-camera" ></i>
+  </button>
+</div>
 </template>
 <template name="updateUserNick">
 <input id="nick" type="text" name="nick" value="{{nick}}" placeholder="doktor..." />
 </template>
 <template name="msg">
-<div class="text-center input-prepend input-append">
-  <button class="btn"> <i class="icon-video" /></button>
-    <input id="newMsg" type="text" value="{{new_msg}}" name="text" class="span8" placeholder="Skriv text"/>
-    <button class="btn"> <i class="icon-camera" /> </button>
+<div class="border background">
+  {{#each messages}}
+  <div class="row-fluid msg-row">
+    <div class="span3">
+      {{user.nick}}
+      <br/>
+      {{createdAt}}
     </div>
-    {{#each messages}}
-    <div class="row-fluid msg-row">
-      <div class="span3">
-        {{user.nick}}
-        <br/>
-        {{createdAt}}
-      </div>
-      <div class="span9">
-        {{{text}}}
-      </div>
-
+    <div class="span9">
+      {{{text}}}
     </div>
-    {{/each}}
-    </template>
+  </div>
+  {{/each}}
+</div>
+</template>

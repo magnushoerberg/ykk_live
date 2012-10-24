@@ -88,10 +88,9 @@ Template.menu.greeting = function () {
   return "Welcome to ykk_live";
 };
 
-Template.msg.events(okCancelEvents('#newMsg', {
+Template.newMsg.events(okCancelEvents('#newMsg', {
   ok: function (value, evt) {
     // template data, if any, is available in 'this'
-    console.log(value, evt);
     Meteor.call('insertMsg', {text: value}, function(err, res) {
       evt.target.value = null;
     });
