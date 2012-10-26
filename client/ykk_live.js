@@ -84,8 +84,8 @@ Template.updateUserNick.events(okCancelEvents('#nick', {
     evt.target.value = Meteor.user().nick;
   }
 }));
-Template.menu.greeting = function () {
-  return "Welcome to ykk_live";
+Template.menu.brand = function () {
+  return "YKK";
 };
 
 Template.newMsg.events(okCancelEvents('#newMsg', {

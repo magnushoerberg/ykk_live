@@ -40,7 +40,7 @@
 
 <template name="activeUsers">
 <div class="affix active-users border background">
-  <h4>Aktiva:</h4>
+  <h4>Inne just nu:</h4>
   <ul class="unstyled">
     {{#each users}}
     <li>
@@ -51,14 +51,14 @@
 </div>
 </template>
 <template name="menu">
-<a class="brand">
-  {{greeting}}
+<a class="brand magenta">
+  {{brand}}
 </a>
 {{loginButtons align=left}}
 </template>
 <template name="newMsg">
-<div class="text-center input-append border">
-  <input id="newMsg" type="text" value="{{new_msg}}" name="text" class="span9" placeholder="Skriv text"/>
+<div class="text-center input-append">
+  <input id="newMsg" type="text" value="{{new_msg}}" name="text" class="input-xxlarge" placeholder="Skriv text"/>
   <button class="btn">
     <i class="icon-camera" ></i>
   </button>

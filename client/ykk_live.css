@@ -1,4 +1,10 @@
 /* CSS declarations go here */
+@media (max-width: 480px) {
+  body { padding: 0; }
+  .container-fluid {
+    margin: 1em;
+  }
+}
 @media (min-width: 767px) {
   .container-fluid {
     max-width: 60%;
@@ -6,8 +12,12 @@
     margin-right: auto;
   }
 }
+.magenta {
+  color: magenta !important;
+}
 .active-users {
     position: relative;
+    margin-bottom: 1em;
 }
 .active-users h4 {
     padding-left: 7px;
