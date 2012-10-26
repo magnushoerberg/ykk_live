@@ -91,9 +91,8 @@ Template.menu.brand = function () {
 Template.newMsg.events(okCancelEvents('#newMsg', {
   ok: function (value, evt) {
     // template data, if any, is available in 'this'
-    Meteor.call('insertMsg', {text: value}, function(err, res) {
-      evt.target.value = null;
-    });
+    Meteor.call('insertMsg', {text: value})
+    evt.target.value = null;
   },
   cancel: function(evt) {
     evt.target.value = null;
